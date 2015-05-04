@@ -2,15 +2,30 @@ package com.herokuapp.ezhao.workout;
 
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import java.util.List;
+import butterknife.ButterKnife;
+import butterknife.InjectView;
 
 public class MainActivity extends FragmentActivity {
+    @InjectView(R.id.vpFragments) ViewPager vpFragments;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        ButterKnife.inject(this);
+
+        List<Workout> workouts = Workout.getAll(this);
+
+        FragmentManager fm = getSupportFragmentManager();
+        WorkoutPagerAdapter workoutPagerAdapter = new WorkoutPagerAdapter(fm, workouts);
+        vpFragments.setAdapter(workoutPagerAdapter);
     }
 
     @Override

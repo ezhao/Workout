@@ -1,0 +1,12 @@
+Jumping jacks,jumpingjacks1,jumpingjacks2
+Wall sit,wallsit1,
+Push up,pushups1,pushups2
+Abdominal crunch,abcrunches1,abcrunches2
+Step-up onto chair,chair1,chair2
+Squat,squats1,squats2
+Triceps dip on chair,tricep1,tricep2
+Plank,plank1,
+High knees running in place,run1,run2
+Lunge,lunges1,lunges2
+Push up,pushups1,pushups2
+Side plank,sideplank1,
