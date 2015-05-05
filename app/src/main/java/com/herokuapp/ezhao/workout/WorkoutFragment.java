@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import java.util.Timer;
@@ -112,9 +113,12 @@ public class WorkoutFragment extends Fragment {
                 if (remains < 0) {
                     cancel();
                     // TODO(emily) Next card!
+                    activity.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
                 }
             }
         }, 0, 9);
+
+        activity.getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
     }
 
     private void setTvTimer(int timeRemaining) {
