@@ -13,6 +13,7 @@ import butterknife.InjectView;
 
 public class MainActivity extends FragmentActivity {
     @InjectView(R.id.vpFragments) ViewPager vpFragments;
+    WorkoutPagerAdapter workoutPagerAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,8 +25,27 @@ public class MainActivity extends FragmentActivity {
         List<Workout> workouts = Workout.getAll(this);
 
         FragmentManager fm = getSupportFragmentManager();
-        WorkoutPagerAdapter workoutPagerAdapter = new WorkoutPagerAdapter(fm, workouts);
+        workoutPagerAdapter = new WorkoutPagerAdapter(fm, workouts);
         vpFragments.setAdapter(workoutPagerAdapter);
+
+        vpFragments.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                Log.i("EMILY", "onPageSelected" + position);
+                WorkoutFragment workoutFragment = workoutPagerAdapter.getItem(position);
+                workoutFragment.timePrep();
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
     }
 
     @Override

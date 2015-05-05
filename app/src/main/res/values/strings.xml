@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Workout</string>
     <string name="action_settings">Settings</string>
+    <string name="prep_string">Get ready…</string>
+    <string name="go_string">GO!</string>
+    <string name="start">Start</string>
 </resources>
